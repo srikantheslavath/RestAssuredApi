@@ -39,6 +39,7 @@ public class Person {
 
     @JsonProperty("firstName")
     public String getFirstName() {
+
         return firstName;
     }
 
