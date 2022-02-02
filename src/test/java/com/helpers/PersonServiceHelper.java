@@ -1,4 +1,4 @@
-package com.pageclass.api.helpers;
+package com.helpers;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.pageclass.api.constants.EndPoints;
@@ -10,14 +10,9 @@ import io.restassured.response.Response;
 
 
 import org.apache.http.HttpStatus;
-import org.apache.http.protocol.HTTP;
-
+import org.testng.Assert;
 import java.lang.reflect.Type;
 import java.util.List;
-
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
-
 
 public class PersonServiceHelper {
 
@@ -41,7 +36,7 @@ public class PersonServiceHelper {
 
         Type type = new TypeReference<List<Person>>() {
         }.getType();
-        assertEquals(response.getStatusCode(), HttpStatus.SC_OK, "OK");
+        Assert.assertEquals(response.getStatusCode(), HttpStatus.SC_OK, "OK");
         List<Person> personList = response.as(type);
         return personList;
     }
@@ -49,7 +44,7 @@ public class PersonServiceHelper {
     //POST request
     public Response createPerson() {
         Person person = new Person();
-        person.getId(4);
+        person.getId(1);
         person.setFirstName("Mahesh");
         person.setLastName("chautapalem");
         person.setAddress("Telecomnagar ,Hyderabad");
@@ -60,7 +55,7 @@ public class PersonServiceHelper {
                 .port(EndPoints.CREATE_PERSON)
                 .andReturn();
 
-        assertEquals(response.getStatusCode(), HttpStatus.SC_CREATED, "CREATED");
+        Assert.assertEquals(response.getStatusCode(), HttpStatus.SC_CREATED, "CREATED");
 
         return response;
     }
@@ -80,7 +75,7 @@ public class PersonServiceHelper {
                 .patch(EndPoints.UPDATE_PERSON)
                 .andReturn();
 
-        assertTrue((response.getStatusCode() == HttpStatus.SC_OK));
+        Assert.assertTrue((response.getStatusCode() == HttpStatus.SC_OK));
         return response;
     }
 
@@ -93,7 +88,7 @@ public class PersonServiceHelper {
                 .when().delete(EndPoints.DELETE_PERSON)
                 .andReturn();
 
-        assertTrue(response.getStatusCode() == HttpStatus.SC_OK);
+        Assert.assertTrue(response.getStatusCode() == HttpStatus.SC_OK);
         return response;
     }
 

@@ -1,11 +1,10 @@
 
+
 package com.pageclass.api.model;
 
 import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.Generated;
-
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -39,7 +38,6 @@ public class Person {
 
     @JsonProperty("firstName")
     public String getFirstName() {
-
         return firstName;
     }
 

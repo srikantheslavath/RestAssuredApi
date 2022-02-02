@@ -9,7 +9,7 @@ public class ConfigManager {
     private static final Properties prop = new Properties();
 
     private ConfigManager() throws IOException{
-        InputStream inputStream =ConfigManager.class.getResourceAsStream("src/resources/config.properties");
+        InputStream inputStream =ConfigManager.class.getResourceAsStream("C:\\Users\\Sampath Velupula\\IdeaProjects\\RestAssuredApi\\resource\\config.properties");
         prop.load(inputStream);
     }
     public static ConfigManager getInstance() {

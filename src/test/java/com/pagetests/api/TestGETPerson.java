@@ -1,6 +1,6 @@
 package com.pagetests.api;
 
-import com.pageclass.api.helpers.PersonServiceHelper;
+import com.helpers.PersonServiceHelper;
 import com.pageclass.api.model.Person;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
